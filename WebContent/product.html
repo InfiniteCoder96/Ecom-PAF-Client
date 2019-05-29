@@ -77,14 +77,17 @@
 				    VIEW PRODUCT BY ID
 				  </div>
 				  <div class="card-body">
+				  <div id="error_msg">
+				  	
+				  </div>
 				    <div class="form-group">
-					    <label for="exampleInputPassword1">Password</label>
-					    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+					    <label for="exampleInputPassword1">Enter product Id</label>
+					    <input type="text" class="form-control" id="product_id" placeholder="Product Id">
 				  	</div>
 				    <button class="btn btn-block btn-info" onclick="getDetailsById()">Details </button>
 				  </div>
 				  <div class="card-footer">
-				  	<table class="table table-bordered table-striped table-hover">
+				  	<table class="table table-bordered table-striped table-hover" id="one_product">
 						<thead>
 							<tr>
 								<th>ID</th>

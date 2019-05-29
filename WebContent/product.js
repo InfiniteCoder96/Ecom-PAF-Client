@@ -51,20 +51,20 @@ function getDetailsById(){
               // process it
         	var items = [];
         	
-        	$.each(data, function(key, val){
+        	
         		items.push("<tr>");
-        		items.push("<td>" + val.id + "</td>");
-        		items.push("<td>" + val.name + "</td>");
-        		items.push("<td>" + val.description + "</td>");
-        		items.push("<td>" + val.price + "</td>");
-        		items.push("<td>" + val.quantity + "</td>");
+        		items.push("<td>" + data.id + "</td>");
+        		items.push("<td>" + data.name + "</td>");
+        		items.push("<td>" + data.description + "</td>");
+        		items.push("<td>" + data.price + "</td>");
+        		items.push("<td>" + data.quantity + "</td>");
         		items.push("<tr>");
-        	});
-        	$("<tbody/>", {html: items.join("")}).appendTo("#all_products");
+        	
+        	$("<tbody/>", {html: items.join("")}).appendTo("#one_product");
 
         }, 
         error : function(jqXHR, textStatus, errorThrown) {
-        		$("#title").text("Sorry! Book not found!");
+        		$("#error_msg").html("<div class=\"alert alert-danger\" role=\"alert\">Product Not Found !</div>");
         		$("#price").text("");
         },
         timeout: 120000,
