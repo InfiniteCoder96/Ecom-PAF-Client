@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        
+        <title>Book client</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="product.js"></script>
+        
+    </head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
+  <a class="navbar-brand" href="#">SelNBye</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Store</a>
+      </li>
+      
+      
+    </ul>
+    
+  </div>
+</nav>
+
+
+<div class="container">
+
+		<div class="row" style="margin:10px">
+			<div class="col-md-6">
+				<div class="card">
+				  <div class="card-header">
+				    VIEW STORE
+				  </div>
+				  <div class="card-body">
+				    <h5 class="card-title">You can view the store by pressing a button</h5>
+				    <button class="btn btn-block btn-info" onclick="getDetails()">Details </button>
+				  </div>
+				  <div class="card-footer">
+				  	<table class="table table-bordered table-striped table-hover" id="all_products">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Name</th>
+								<th>Description</th>
+								<th>Price</th>
+								<th>Quantity</th>
+							</tr>
+						</thead>
+						<tbody>
+						
+						</tbody>
+					</table>
+				  </div>
+				</div>
+    
+			    
+			   
+				
+				
+					
+				</div>
+				<div class="col-md-6">
+				<div class="card">
+				  <div class="card-header">
+				    VIEW PRODUCT BY ID
+				  </div>
+				  <div class="card-body">
+				    <div class="form-group">
+					    <label for="exampleInputPassword1">Password</label>
+					    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+				  	</div>
+				    <button class="btn btn-block btn-info" onclick="getDetailsById()">Details </button>
+				  </div>
+				  <div class="card-footer">
+				  	<table class="table table-bordered table-striped table-hover">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Name</th>
+								<th>Description</th>
+								<th>Price</th>
+								<th>Quantity</th>
+							</tr>
+						</thead>
+						<tbody>
+						
+						</tbody>
+					</table>
+				  </div>
+				</div>
+				</div>
+			</div>
+		</div>
+</body>
+    
+	
+	
+	
+
+
+    <h4><b>Insert a book</b></h4><br/>
+    Id : <br/>
+	<input type="text" id="add_id" /><br/>
+    Title : <br/>
+	<input type="text" id="add_title" /><br/>
+    Price : <br/>
+	<input type="text" id="add_price" />  
+	<button onclick="addDetails()">Add </button>
+	<p />
+        <div id="title"></div>
+	<p />
+        <div id="price"></div>
+
+    <h4><b>Delete book by Id</b></h4><br/>
+    Book Id : <br/>
+	<input type="text" id="remove_id" /> 
+	<button onclick="removeDetails()">Remove </button>
+</html>
