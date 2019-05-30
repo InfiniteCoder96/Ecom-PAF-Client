@@ -5,7 +5,7 @@
 /**
  * 
  */
-var token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1IiwiaWF0IjoxNTU5MTUyMDcxLCJleHAiOjE1NTk3NTY4NzF9._mvyBdJ1T0sbFF3CxaIROQaEqGU0OrsvleCxdqYzvREfbt1bEGnh239BmH2aofiptULwQ3T4uWSzFdFeA1iO_A";
+var token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1IiwiaWF0IjoxNTU5MTU3MjEwLCJleHAiOjE1NTk3NjIwMTB9.oXHw-S4fPIFcLZMCfaXrpX-SvjLTpkkSY7hmiyb3lGyjkqNGxIMusdPPPOi00v6Jtf7axkqfnF3rjkHWzwIbXg";
 
 function getDetails(){
 	jQuery.ajax({
@@ -71,45 +71,47 @@ function getDetailsById(){
     });
 };
 
-function addDetails(){
+function addProducts(){
 	console.log('addWine');
     $.ajax({
         type: 'POST',
         contentType: 'application/json',
         headers: {"Authorization": "Bearer " + token},
-        url: "http://localhost:8080/book_service/rest/books/",
+        url: "http://localhost:5000/api/products",
         dataType: "json",
-        data: formToJSON(),
-        success: function(data, textStatus, jqXHR){
-            alert('Book added successfully');
+        data: AddNewProductformToJSON(),
+        success: function(response){
+        	$("#pro_add_msg").html("<div class=\"alert alert-success\" role=\"alert\">Product added successfuly !</div>");
         },
         error: function(jqXHR, textStatus, errorThrown){
-            alert('addbook error: ' + textStatus);
+        	$("#pro_add_msg").html("<div class=\"alert alert-danger\" role=\"alert\">Something went wrong !</div>");
         }
     });
 };
 
-function removeDetails(){
+function removeProductById(){
 	jQuery.ajax({
-        url: "http://localhost:8080/book_service/rest/books/" + $("#remove_id").val(),
+        url: "http://localhost:5000/api/products/" + $("#del_product_id").val(),
         type: "DELETE",
         contentType: "application/json",  
         dataType:'json',
+        headers: {"Authorization": "Bearer " + token},
         success: function(data, textStatus, errorThrown) {
-            alert('Book removed successfully');
+        	$("#pro_del_msg").html("<div class=\"alert alert-success\" role=\"alert\">Product deleted successfuly !</div>");
         },
         error : function(jqXHR, textStatus, errorThrown) {
-        		alert('addbook error: ' + textStatus);
+        	$("#pro_del_msg").html("<div class=\"alert alert-danger\" role=\"alert\">Something went wrong !</div>");
         },
         timeout: 120000,
     });
 };
 
 
-function formToJSON() {
+function AddNewProductformToJSON() {
     return JSON.stringify({
-         "id" : parseInt($('#add_id').val()),
-        "title": $('#add_title').val(),
-        "price": parseFloat($('#add_price').val())
-        });
+         "name" : $('#product_name').val(),
+        "quantity": parseInt($('#product_quant').val()),
+        "price": parseFloat($('#product_price').val()),
+        "description": $('#product_desc').val()
+    });
 }

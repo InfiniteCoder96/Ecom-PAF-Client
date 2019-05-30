@@ -40,12 +40,12 @@
 		<div class="row" style="margin:10px">
 			<div class="col-md-6">
 				<div class="card">
-				  <div class="card-header">
+				  <div class="card-header bg-primary">
 				    VIEW STORE
 				  </div>
 				  <div class="card-body">
-				    <h5 class="card-title">You can view the store by pressing a button</h5>
-				    <button class="btn btn-block btn-info" onclick="getDetails()">Details </button>
+				   
+				    <button class="btn btn-block btn-dark" onclick="getDetails()">VIEW ALL</button>
 				  </div>
 				  <div class="card-footer">
 				  	<table class="table table-bordered table-striped table-hover" id="all_products">
@@ -73,7 +73,7 @@
 				</div>
 				<div class="col-md-6">
 				<div class="card">
-				  <div class="card-header">
+				  <div class="card-header bg-warning">
 				    VIEW PRODUCT BY ID
 				  </div>
 				  <div class="card-body">
@@ -81,10 +81,10 @@
 				  	
 				  </div>
 				    <div class="form-group">
-					    <label for="exampleInputPassword1">Enter product Id</label>
+					    <label for="exampleInputPassword1">Enter Product Id</label>
 					    <input type="text" class="form-control" id="product_id" placeholder="Product Id">
 				  	</div>
-				    <button class="btn btn-block btn-info" onclick="getDetailsById()">Details </button>
+				    <button class="btn btn-block btn-dark" onclick="getDetailsById()">VIEW PRODUCT</button>
 				  </div>
 				  <div class="card-footer">
 				  	<table class="table table-bordered table-striped table-hover" id="one_product">
@@ -105,29 +105,65 @@
 				</div>
 				</div>
 			</div>
+			<div class="row" style="margin:10px">
+			<div class="col-md-6">
+				<div class="card">
+				  <div class="card-header bg-success">
+				    INSERT PRODUCTS TO STORE
+				  </div>
+				  <div class="card-body">
+				  <div id="pro_add_msg">
+				  	
+				  </div>
+				    <div class="form-group">
+					    <label for="exampleInputPassword1">Enter Product Name</label>
+					    <input type="text" class="form-control" id="product_name" placeholder="Product Name">
+				  	</div>
+				  	<div class="form-group">
+					    <label for="exampleInputPassword1">Enter Product Description</label>
+					    <input type="text" class="form-control" id="product_desc" placeholder="Product Description">
+				  	</div>
+				  	<div class="form-group">
+					    <label for="exampleInputPassword1">Enter Product Price</label>
+					    <input type="text" class="form-control" id="product_price" placeholder="Product Price">
+				  	</div>
+				  	<div class="form-group">
+					    <label for="exampleInputPassword1">Enter Product Quantity</label>
+					    <input type="text" class="form-control" id="product_quant" placeholder="Product Quntity">
+				  	</div>
+				    
+					<button class="btn btn-block btn-dark" onclick="addProducts()">ADD NEW PRODUCT</button>
+				  </div>
+				  
+				</div>
+    
+			    
+			   
+				
+				
+					
+				</div>
+				<div class="col-md-6">
+				<div class="card">
+				  <div class="card-header bg-danger">
+				    REMOVE PRODUCT BY ID
+				  </div>
+				  <div class="card-body">
+				  <div id="pro_del_msg">
+				  	
+				  </div>
+				    <div class="form-group">
+					    <label for="exampleInputPassword1">Enter product Id</label>
+					    <input type="text" class="form-control" id="del_product_id" placeholder="Product Id">
+				  	</div>
+				    <button class="btn btn-block btn-dark" onclick="removeProductById()">DELETE PRODUCT</button>
+				  </div>
+				  
+				</div>
+				</div>
+			</div>
 		</div>
 </body>
     
-	
-	
-	
 
-
-    <h4><b>Insert a book</b></h4><br/>
-    Id : <br/>
-	<input type="text" id="add_id" /><br/>
-    Title : <br/>
-	<input type="text" id="add_title" /><br/>
-    Price : <br/>
-	<input type="text" id="add_price" />  
-	<button onclick="addDetails()">Add </button>
-	<p />
-        <div id="title"></div>
-	<p />
-        <div id="price"></div>
-
-    <h4><b>Delete book by Id</b></h4><br/>
-    Book Id : <br/>
-	<input type="text" id="remove_id" /> 
-	<button onclick="removeDetails()">Remove </button>
 </html>
